@@ -24,3 +24,10 @@ class DishTypeListView(ListView):
     context_object_name = "dishtypes_list"
     template_name = "restaurant/dishtypes_list.html"
     paginate_by = 5
+
+
+class CookTypeListView(ListView):
+    model = Cook
+    context_object_name = "cook_list"
+    template_name = "restaurant/cook_list.html"
+    paginate_by = 5

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for cook in cook_list %}
+    {{ cook.username }}
+  {% endfor %}
+{% endblock %}
