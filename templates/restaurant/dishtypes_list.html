@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for dish_type in dishtypes_list %}
+    {{ dish_type.name }}
+  {% endfor %}
+{% endblock %}
