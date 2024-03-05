@@ -26,8 +26,15 @@ class DishTypeListView(ListView):
     paginate_by = 5
 
 
-class CookTypeListView(ListView):
+class CookListView(ListView):
     model = Cook
     context_object_name = "cook_list"
     template_name = "restaurant/cook_list.html"
+    paginate_by = 5
+
+
+class DishListView(ListView):
+    model = Dish
+    context_object_name = "dish_list"
+    template_name = "restaurant/dish_list.html"
     paginate_by = 5
