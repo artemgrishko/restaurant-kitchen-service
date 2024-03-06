@@ -41,6 +41,12 @@ class DishTypeUpdateView(generic.UpdateView):
     template_name = "restaurant/dish_types_form.html"
 
 
+class DishTypeDeleteView(generic.DeleteView):
+    model = DishType
+    success_url = reverse_lazy("restaurant:dish_types-list")
+    template_name = "restaurant/dish_types_confirm_delete.html"
+
+
 class CookListView(generic.ListView):
     model = Cook
     context_object_name = "cook_list"
