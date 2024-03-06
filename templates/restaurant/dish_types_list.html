@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>All dish types</h1>
+  <h1>
+    All dish types
+    <a href="{% url 'restaurant:dish_types-create' %}" class="btn btn-primary link-to-page">Create</a>
+  </h1>
   {% if dish_types_list %}
     <ul>
       {% for type in dish_types_list %}
