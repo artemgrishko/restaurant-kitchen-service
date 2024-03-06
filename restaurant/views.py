@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 from restaurant.models import DishType, Dish, Cook
 
@@ -33,8 +33,14 @@ class CookListView(ListView):
     paginate_by = 5
 
 
+class CookDetailView(DetailView):
+    model = Cook
+    queryset = Cook.objects.prefetch_related("dishes__dish_type")
+
+
 class DishListView(ListView):
     model = Dish
     context_object_name = "dish_list"
     template_name = "restaurant/dish_list.html"
     paginate_by = 5
+
