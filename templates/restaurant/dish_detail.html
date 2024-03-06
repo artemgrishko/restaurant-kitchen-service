@@ -12,4 +12,10 @@
       <li>{{ cook.username }} {{ cook.first_name }} {{ cook.last_name }}</li>
     {% endfor %}
   </ul>
+  <a href="{% url 'restaurant:dish-update' pk=dish.id %}" class="btn btn-primary">
+    Update
+  </a>
+{#  <a href="{% url 'restaurant:cooks-delete' pk=cook.id %}" class="btn btn-danger">#}
+{#    Delete#}
+{#  </a>#}
 {% endblock %}
