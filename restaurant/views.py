@@ -44,3 +44,7 @@ class DishListView(ListView):
     template_name = "restaurant/dish_list.html"
     paginate_by = 5
 
+
+class DishDetailView(DetailView):
+    model = Dish
+

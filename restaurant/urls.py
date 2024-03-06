@@ -6,6 +6,7 @@ from .views import (
     DishListView,
     CookDetailView,
     DishDetailView,
+    CookListView,
 )
 
 urlpatterns = [
