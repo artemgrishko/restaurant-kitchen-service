@@ -27,6 +27,13 @@ class DishTypeListView(ListView):
     paginate_by = 5
 
 
+class DishTypeCreateView(CreateView):
+    model = DishType
+    fields = "__all__"
+    template_name = "restaurant/dish_form.html"
+    success_url = reverse_lazy("restaurant:dish_types-list")
+
+
 class CookListView(ListView):
     model = Cook
     context_object_name = "cook_list"
