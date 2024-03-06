@@ -5,10 +5,18 @@
     <a href="{% url 'restaurant:dish_types-create' %}" class="btn btn-primary link-to-page">Create</a>
   </h1>
   {% if dish_types_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+      </tr>
       {% for type in dish_types_list %}
-        <li>{{ type.id }} {{ type.name }}</li>
+        <tr>
+          <td>{{ type.id }}</td>
+          <td>{{ type.name }}</td>
+          <td><a href="{% url 'restaurant:dish_types-update' pk=type.id %}">Update</a></td>
+        </tr>
       {% endfor %}
-    </ul>
   {% endif %}
 {% endblock %}
