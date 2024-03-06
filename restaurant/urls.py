@@ -6,7 +6,7 @@ urlpatterns = [
     path("", index, name='index'),
     path("dishtypes/",
          DishTypeListView.as_view(),
-         name="dishtypes-list"),
+         name="dish_types-list"),
     path("cooks/", CookListView.as_view(), name="cooks-list"),
     path("dishes/", DishListView.as_view(), name="dishes-list")
 ]

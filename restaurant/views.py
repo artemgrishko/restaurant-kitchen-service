@@ -21,8 +21,8 @@ def index(request):
 
 class DishTypeListView(ListView):
     model = DishType
-    context_object_name = "dishtypes_list"
-    template_name = "restaurant/dishtypes_list.html"
+    context_object_name = "dish_types_list"
+    template_name = "restaurant/dish_types_list.html"
     paginate_by = 5
 
 

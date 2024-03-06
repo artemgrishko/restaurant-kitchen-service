@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>All dish types</h1>
-  {% if dishtypes_list %}
+  {% if dish_types_list %}
     <ul>
-      {% for type in dishtypes_list %}
+      {% for type in dish_types_list %}
         <li>{{ type.id }} {{ type.name }}</li>
       {% endfor %}
     </ul>
