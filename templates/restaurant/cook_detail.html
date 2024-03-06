@@ -18,4 +18,7 @@
       <p>No cars!</p>
     {% endfor %}
   </div>
+  <a href="{% url 'restaurant:cooks-update' pk=cook.id %}" class="btn btn-primary">
+    Update
+  </a>
 {% endblock %}
