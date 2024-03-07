@@ -64,7 +64,7 @@
                     <a href="{% url 'restaurant:dish_types-list' %}" class="dropdown-item border-radius-md">
                       <span class="ps-3">Dish types</span>
                     </a>
-                    <a href="{% url 'restaurant:dish_types-list' %}" class="dropdown-item border-radius-md">
+                    <a href="{% url 'restaurant:cooks-list' %}" class="dropdown-item border-radius-md">
                       <span class="ps-3">Cooks</span>
                     </a>
                     <div
@@ -102,9 +102,6 @@
                     <a href="{% url 'login' %}" class="dropdown-item border-radius-md">
                       <span class="ps-3">Sign In</span>
                     </a>
-                    <a href="{% url 'register' %}" class="dropdown-item border-radius-md">
-                      <span class="ps-3">Sign Up</span>
-                    </a>
                     {% endif %}
                   </div>
 
@@ -136,16 +133,7 @@
                       </div>
                       Landing Pages
                     </div>
-
-                    <a href="/" class="dropdown-item border-radius-md">
-                      <span class="ps-3">Presentation</span>
-                    </a>
-                    <a href="{% url 'restaurant:dishes-list' %}" class="dropdown-item border-radius-md">
-                      <span class="ps-3">About Us</span>
-                    </a>
-                    <a href="{% url 'restaurant:cooks-list' %}" class="dropdown-item border-radius-md">
-                      <span class="ps-3">Contact Us</span>
-                    </a>
+                  
                     <a href="{% url 'restaurant:dishes-list' %}" class="dropdown-item border-radius-md">
                       <span class="ps-3">Author</span>
                     </a>
@@ -184,9 +172,6 @@
                     {% else %}
                     <a href="{% url 'login' %}" class="dropdown-item border-radius-md">
                       <span class="ps-3">Sign In</span>
-                    </a>
-                    <a href="{% url 'register' %}" class="dropdown-item border-radius-md">
-                      <span class="ps-3">Sign Up</span>
                     </a>
                     {% endif %}
 
