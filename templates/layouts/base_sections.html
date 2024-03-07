@@ -1,18 +1,6 @@
-<!--
-=========================================================
-* Soft UI Design System - v1.0.9
-=========================================================
-
-* Product Page:  https://www.creative-tim.com/product/soft-ui-design-system 
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. -->
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
 
 <head>
 
@@ -40,7 +28,9 @@
 <link id="pagestyle" href="{% static 'css/soft-design-system.css' %}" rel="stylesheet" />
 </head>
 
-<body {% block body %}{% endblock body %} >
+<body {% block body %}
+  
+{% endblock body %} >
 
   {% block header %}
 
@@ -49,17 +39,17 @@
 
   {% endblock header %}
 
+
   {% block content %}{% endblock content %}
 
-{#  {% block footer %}#}
-{##}
-{#    {% include 'includes/footer_background.html' %}#}
-{##}
-{#  {% endblock footer %}#}
-{##}
-{#  {% include 'includes/scripts.html' %}#}
-
+  {% block pagination %}
+    {% include "includes/pagination.html" %}
+  {% endblock %}
+  
+  
   {% block javascripts %}{% endblock javascripts %}
 
+
 </body>
+
 </html>

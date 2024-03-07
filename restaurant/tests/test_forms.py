@@ -4,7 +4,7 @@ from restaurant.forms import CookCreationForm
 
 
 class TestForms(TestCase):
-    def test_cook_creation_form_is_valid(self):
+    def test_cook_creation_form_is_valid(self) -> None:
         form_data = {
             "username": "test_username",
             "password1": "test_password",
