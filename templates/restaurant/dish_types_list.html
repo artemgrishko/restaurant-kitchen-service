@@ -19,45 +19,41 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mx-auto">
-          <div class="row py-lg-7 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-2">
-                <h4 class="mb-0"></h4>
-              </div>
-              <p class="text-lg mb-0">
-              <div class="text-center">
-                <h1>
-                  All Dish Types
-                  <a href="{% url 'restaurant:dish_types-create' %}" class="btn btn-primary link-to-page">
-                    Create
-                  </a>
-                </h1>
-              </div>
-                <form method="get" action="" class="form-inline d-flex">
-                  {{ search_form|crispy }}
-                  <input type="submit" value="🔎" class="btn btn-secondary">
-                </form>
-                {% if dish_types_list %}
-                  <table class="table">
-                    <tr>
-                      <th>ID</th>
-                      <th>Name</th>
-                      <th>Update</th>
-                      <th>Delete</th>
-                    </tr>
-                    {% for type in dish_types_list %}
-                      <tr>
-                        <td>{{ type.id }}</td>
-                        <td>{{ type.name }}</td>
-                        <td><a href="{% url 'restaurant:dish_types-update' pk=type.id %}" class="btn btn-primary">Update</a></td>
-                        <td><a href="{% url 'restaurant:dish_types-delete' pk=type.id %}" class="btn btn-danger">Delete</a></td>
-                      </tr>
-                    {% endfor %}
-                  </table>
-                {% endif %}
+          <h4 class="mb-0"></h4>
             </div>
+            <p class="text-lg mb-0">
+            <div class="text-center">
+              <h1>
+                All Dish Types
+                <a href="{% url 'restaurant:dish_types-create' %}" class="btn btn-primary link-to-page">
+                  Create
+                </a>
+              </h1>
+            </div>
+              <form method="get" action="" class="form-inline d-flex">
+                {{ search_form|crispy }}
+                <input type="submit" value="🔎" class="btn btn-secondary">
+              </form>
+              {% if dish_types_list %}
+                <table class="table">
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                  </tr>
+                  {% for type in dish_types_list %}
+                    <tr>
+                      <td>{{ type.id }}</td>
+                      <td>{{ type.name }}</td>
+                      <td><a href="{% url 'restaurant:dish_types-update' pk=type.id %}" class="btn btn-primary">Update</a></td>
+                      <td><a href="{% url 'restaurant:dish_types-delete' pk=type.id %}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                  {% endfor %}
+                </table>
+              {% endif %}
           </div>
         </div>
-      </div>
   </section>
 
 {% endblock content %}

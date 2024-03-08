@@ -21,11 +21,11 @@
     <div class="container">
       <div class="row">
         <div class="col-12 mx-auto">
-          <div class="row py-lg-7 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-2">
                 <h4 class="mb-0"></h4>
               </div>
+              <div class="text-center">
                 <h1>{{ object|yesno:"Update,Create" }} dish</h1>
+              </div>
                 <form action="" method="post">
                   {% csrf_token %}
                   {{ form|crispy }}
@@ -33,8 +33,6 @@
                 </form>
             </div>
           </div>
-        </div>
-      </div>
   </section>
 
 {% endblock content %}
