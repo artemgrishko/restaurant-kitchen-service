@@ -9,7 +9,7 @@ admin.site.register(Dish)
 
 @admin.register(Cook)
 class CookAdmin(UserAdmin):
-    years_of_experience = UserAdmin.list_display + ("years_of_experience",)
+    list_display = UserAdmin.list_display + ("years_of_experience",)
     fieldsets = UserAdmin.fieldsets + (
         (("Additional info", {"fields": ("years_of_experience",)}),)
     )
