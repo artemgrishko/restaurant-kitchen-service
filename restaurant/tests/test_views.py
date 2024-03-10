@@ -102,3 +102,23 @@ class DishListViewSearchTest(TestCase):
         self.assertContains(response, "test1")
         self.assertNotContains(response, "test2")
         self.assertNotContains(response, "tes3")
+
+
+class DishTypeListViewSearchTest(TestCase):
+    def setUp(self) -> None:
+        self.user = get_user_model().objects.create_user(
+            username="test",
+            password="password"
+        )
+        self.client.login(username="test", password="password")
+        DishType.objects.create(name="pizza")
+        DishType.objects.create(name="sushi")
+        DishType.objects.create(name="sup")
+
+    def test_dish_types_list_view_with_search(self) -> None:
+        url = reverse("restaurant:dish_types-list")
+        response = self.client.get(url, {"name": "pizza"})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "pizza")
+        self.assertNotContains(response, "sushi")
+        self.assertNotContains(response, "sup")
