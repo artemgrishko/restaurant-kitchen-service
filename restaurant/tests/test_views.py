@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 
-from restaurant.models import DishType, Dish
+from restaurant.models import DishType, Dish, Cook
 
 
 class PublicDishTypesTest(TestCase):
@@ -122,3 +122,21 @@ class DishTypeListViewSearchTest(TestCase):
         self.assertContains(response, "pizza")
         self.assertNotContains(response, "sushi")
         self.assertNotContains(response, "sup")
+
+
+class CookListViewSearchTest(TestCase):
+    def setUp(self) -> None:
+        self.user = get_user_model().objects.create_user(
+            username="test",
+            password="password"
+        )
+        self.client.login(username="test", password="password")
+        Cook.objects.create(username="Bob", password="test1")
+        Cook.objects.create(username="Alice", password="test2")
+
+    def test_cook_list_view_with_search(self) -> None:
+        url = reverse("restaurant:cooks-list")
+        response = self.client.get(url, {"username": "Bob"})
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Bob")
+        self.assertNotContains(response, "Alice")
