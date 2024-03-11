@@ -4,8 +4,14 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from restaurant.forms import CookCreationForm, CookUpdateExperience, DishTypeSearchForm, CookSearchForm, DishSearchForm, \
+from restaurant.forms import (
+    CookCreationForm,
+    CookUpdateExperience,
+    DishTypeSearchForm,
+    CookSearchForm,
+    DishSearchForm,
     DishForm
+)
 from restaurant.models import DishType, Dish, Cook
 
 
@@ -42,9 +48,10 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
         queryset = DishType.objects.all()
         form = DishTypeSearchForm(self.request.GET)
         if form.is_valid():
-            return (queryset.filter
-                    (name__icontains=form.cleaned_data["name"])
-                    )
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+
         return queryset
 
 
