@@ -1,0 +1,66 @@
+{% extends 'layouts/base_sections.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+
+{% block title %} Material Kit 2 by Creative Tim {% endblock title %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+{% include 'includes/navigation.html' %}
+
+
+
+{% endblock header %}
+
+{% block content %}
+
+  <!-- START Testimonials w/ user image & text & info -->
+  <section class="py-sm-7 py-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <h4 class="mb-0"></h4>
+            </div>
+            <div class="text-center">
+              <h1>
+                Dish List
+                <a href="{% url 'restaurant:dish-create' %}" class="btn btn-primary link-to-page">
+                  Create
+                </a>
+              </h1>
+            </div>
+            <form method="get" action="" class="form-inline d-flex">
+              {{ search_form|crispy }}
+              <input type="submit" value="🔎" class="btn btn-secondary">
+            </form>
+            {% if dish_list %}
+              <table class="table">
+                <tr>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                  <th>Dish Type</th>
+                </tr>
+                {% for dish in dish_list %}
+                  <tr>
+                    <td>{{ dish.id }}</td>
+                    <td><a href="{% url 'restaurant:dishes-detail' pk=dish.id %}" style="color: #6f42c1">{{ dish.name }}</a></td>
+                    <td>{{ dish.price }}</td>
+                    <td>{{ dish.dish_type.name }}</td>
+                  </tr>
+                {% endfor %}
+              </table>
+            {% endif %}
+          </div>
+        </div>
+  </section>
+
+{% endblock content %}
+
+{% block footer %}  
+
+  {% include 'includes/footer_fullscreen.html' %}
+
+{% endblock footer %}

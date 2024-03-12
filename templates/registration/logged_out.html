@@ -1,0 +1,42 @@
+{% extends 'layouts/base_sections.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+
+{% block title %} Material Kit 2 by Creative Tim {% endblock title %}
+
+{% block body %} class="blog-author bg-gray-100" {% endblock body %}
+
+{% block header %}
+
+{% include 'includes/navigation.html' %}
+
+
+
+{% endblock header %}
+
+{% block content %}
+
+  <!-- START Testimonials w/ user image & text & info -->
+  <section class="py-sm-7 py-5 position-relative">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row py-lg-7 py-5">
+                <h4 class="mb-0"></h4>
+              </div>
+              <div class="text-center">
+                <h1>Logged out</h1>
+                <a href="{% url 'login' %}" style="color: #9b0979">Click here to login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+
+{% endblock content %}
+
+{% block footer %}  
+
+  {% include 'includes/footer_fullscreen.html' %}
+
+{% endblock footer %}
